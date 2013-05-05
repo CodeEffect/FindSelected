@@ -1,0 +1,54 @@
+[
+    {
+        "caption": "Find",
+        "mnemonic": "I",
+        "id": "find",
+        "children":
+        [
+            { "command": "find_selected_next", "args": {"alt": "last_search"}, "caption": "Find selected next (last search)…" },
+            { "command": "find_selected_previous", "args": {"alt": "last_search"}, "caption": "Find selected previous (last search)…" },
+            { "command": "find_selected_next", "args": {"alt": "clipboard"}, "caption": "Find selected next (clipboard)…" },
+            { "command": "find_selected_previous", "args": {"alt": "clipboard"}, "caption": "Find selected previous (clipboard)…" },
+            { "caption": "-" }
+        ]
+    },
+    {
+        "caption": "Preferences",
+        "mnemonic": "n",
+        "id": "preferences",
+        "children":
+        [
+            {
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "Find Selected",
+                        "children":
+                        [
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/Find Selected/Default (Windows).sublime-keymap",
+                                    "platform": "Windows"
+                                },
+                                "caption": "Key Bindings – Default"
+                            },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/User/Default (Windows).sublime-keymap",
+                                    "platform": "Windows"
+                                },
+                                "caption": "Key Bindings – User"
+                            },
+                            { "caption": "-" }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,6 @@
+[
+    { "keys": ["f3"], "command": "find_selected_next", "args": { "alt": "last_search" } },
+    { "keys": ["shift+f3"], "command": "find_selected_previous", "args": { "alt": "last_search" } },
+    { "keys": ["ctrl+f3"], "command": "find_selected_next", "args": { "alt": "clipboard" } },
+    { "keys": ["ctrl+shift+f3"], "command": "find_selected_previous", "args": { "alt": "clipboard" } }
+]
