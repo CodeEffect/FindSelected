@@ -1,10 +1,11 @@
+# coding=utf-8
 import sublime
 import sublime_plugin
 
 
 def removeNewlinesAndCut(text):
     if "\n" in text:
-        text = text[0:text.find("\n")] + '...'
+        text = text[0:text.find("\n")] + '…'
     return text
 
 
