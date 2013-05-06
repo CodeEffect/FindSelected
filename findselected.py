@@ -3,12 +3,13 @@ import sublime
 import sublime_plugin
 
 
-class FindSelectedNextCommand(sublime_plugin.TextCommand):
-    def removeNewlinesAndCut(self, text, cutTo=100):
-        if "\n" in text or "\r" in text:
-            text = text.replace("\n", "/CR/").replace("\r", "")
-        return text[0:cutTo - 1] + u"…" if len(text) > cutTo else text
+def removeNewlinesAndCut(text, cutTo=100):
+    if "\n" in text or "\r" in text:
+        text = text.replace("\n", "/CR/").replace("\r", "")
+    return text[0:cutTo - 1] + u"…" if len(text) > cutTo else text
 
+
+class FindSelectedNextCommand(sublime_plugin.TextCommand):
     def run(self, edit, alt="last_search"):
         """Find next instance of selected text.
 
@@ -52,11 +53,11 @@ If selection empty then look for the last Find command search term or the clipbo
 
         # If still nothing found
         if not match:
-            return sublime.status_message('''Unable to find "%s"''' % self.removeNewlinesAndCut(searchText))
+            return sublime.status_message('''Unable to find "%s"''' % removeNewlinesAndCut(searchText))
 
         # If we only find our current selection then message to say only 1 found
         if selection and match.b == selectedPos:
-            return sublime.status_message('''Only 1 instance of "%s" found''' % self.removeNewlinesAndCut(searchText))
+            return sublime.status_message('''Only 1 instance of "%s" found''' % removeNewlinesAndCut(searchText))
 
         # Highlight it
         view.sel().clear()
@@ -64,7 +65,7 @@ If selection empty then look for the last Find command search term or the clipbo
         # Scroll to it
         view.show(match)
         # Zoidberg eyeball, iris out!
-        return sublime.status_message('''Found "%s"''' % self.removeNewlinesAndCut(searchText))
+        return sublime.status_message('''Found "%s"''' % removeNewlinesAndCut(searchText))
 
 
 class FindSelectedPreviousCommand(sublime_plugin.TextCommand):
@@ -108,7 +109,7 @@ If selection empty then look for the last Find command search term or the clipbo
         if selection:
             # If we only find one match
             if len(matches) == 1:
-                return sublime.status_message('''Only 1 instance of "%s" found''' % self.removeNewlinesAndCut(searchText))
+                return sublime.status_message('''Only 1 instance of "%s" found''' % removeNewlinesAndCut(searchText))
 
             # If our selected text is the first found then we need the last found
             if matches[0].b == selectedPos:
@@ -125,7 +126,7 @@ If selection empty then look for the last Find command search term or the clipbo
         else:
             # If not found
             if not matches:
-                return sublime.status_message('''Unable to find "%s"''' % self.removeNewlinesAndCut(searchText))
+                return sublime.status_message('''Unable to find "%s"''' % removeNewlinesAndCut(searchText))
             # If only 1 found
             if len(matches) == 1:
                 match = matches[0]
@@ -159,4 +160,4 @@ If selection empty then look for the last Find command search term or the clipbo
         # Scroll to it
         view.show(match)
         # Rubber baby buggy bumpers.
-        return sublime.status_message('''Found "%s"''' % self.removeNewlinesAndCut(searchText))
+        return sublime.status_message('''Found "%s"''' % removeNewlinesAndCut(searchText))
