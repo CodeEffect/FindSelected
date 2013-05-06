@@ -1,7 +1,8 @@
 # Find Selected #
 
-A very simple additional pair of methods for quickly searching for text within a
-page. Sublime Text 2 (http://www.sublimetext.com/2).
+A plugin for Sublime Text 2 that adds an additional pair of methods for quickly searching for text within a page. 
+
+## Details ##
 
 Two additional search methods are available:
 
@@ -25,10 +26,24 @@ keypress.
 **Important note about key bindings:** If you have SublimeCodeIntel installed it 
 grabs CTRL+F3 by default. If you wish to override this behaviour you will need to
 put Find Selected keys in your user key bindings file. To do this open the default 
-key bindings at "Preferences -> Package settings -> Find Selected -> Key Bindings 
-- Default". Copy and paste these into your user file at "Preferences -> Key 
-Bindings - User" ensuring you add the trailing comma as appropriate.
+key bindings at `Preferences` -> `Package settings` -> `Find Selected` -> `Key Bindings` 
+- `Default`. Copy and paste these into your user file at `Preferences` -> `Key 
+Bindings - User` ensuring you add the trailing comma as appropriate.
 
+## Manual installation ##
+
+At present the plugin is not in package control so you will need to install manually.
+Go to the "Packages" directory (`Preferences` / `Browse Packages…`). Then clone this
+repository:
+
+    git clone git://github.com/CodeEffect/FindSelected
+
+## Default key bindings ##
+
+`f3 - find_selected_next - If selected find next occurrence, if not then find last search term`
+`shift+f3 - find_selected_previous - If selected find prev occurence, if not then find previous last search term`
+`ctrl+f3 - find_selected_next - If selected find next occurrence, if not then find clipboard`
+`ctrl+shift+f3 - find_selected_previous - If selected find prev occurrence, if not then find previous clipboard`
 
 ## License ##
 
