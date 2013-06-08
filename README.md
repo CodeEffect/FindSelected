@@ -32,11 +32,18 @@ key bindings file. To do this open the default key bindings at `Preferences` ->
 these into your user file at `Preferences` -> `Key Bindings - User` ensuring you
 add the trailing comma as appropriate.
 
-## Manual installation ##
+## Installation ##
 
-At present the plugin is not in package control so you will need to install manually.
+The easiest way to install is through Package Control.
 
-### Using GIT (recommended): ###
+Once you install Package Control, restart ST3 and bring up the Command Palette
+(Ctrl+Shift+P on Linux/Windows, Cmd+Shift+P on OS X). Select "Package Control:
+Install Package", wait while Package Control fetches the latest package list,
+then select FindSelected when the list appears. The advantage of using this method
+is that Package Control will automatically keep FindSelected up to date with the
+latest version.
+
+### Using GIT: ###
 Go to the Packages directory (`Preferences` / `Browse Packages…`). Then clone this
 repository:
 
